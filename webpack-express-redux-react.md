@@ -54,7 +54,7 @@ app.listen(3000, function () {
 
 ### express のサーバーで返すように指定した public/index.html を作る
 
-```HTML
+```
 <!DOCTYPE>
 <html>
 <head>
