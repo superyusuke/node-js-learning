@@ -43,14 +43,14 @@ const path = require('path')
 // DEFINES A FOLDER FOR THE STATIC FILES
 app.use(express.static('public'))
 // DEFINES THE MAIN ENTRY POINT
-// publicディレクトリとその中のindex.htmlはこの後すぐに作る
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('App web-server listening onport 3000')
 })
 ```
+app.get('/',(req,res)=>{}) は、url "/" に対してクライアントが get した場合にコールバックを実行するということが記述されている。index.html を response に送って、resolve = 終了させている。
 
 ### express のサーバーで返すように指定した public/index.html を作る
 
@@ -125,7 +125,11 @@ Webpack に Babel を compiler として使うように指定
 ### query:
 Webpack に Babel compiler を使って、ES6/es2015 もしくは ES6/stage-1 javascript version で書かれたソースを、ブラウザが読める JavaScript に変換するように指定している。 React は JSX もコンパイルするようにする指定。
 
+## Redux アプリを作って、webpack でコンパイルし、アクセするする
 
+1. src という名前のフォルダを開発ディレクトリ直下に
+• make a file app.js inside src folder
+• copy the following code and save app.js
 
 
 
