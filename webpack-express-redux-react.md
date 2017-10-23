@@ -24,7 +24,7 @@ $ yarn add babel-core@6.21.0 babel-loader@6.2.10 babel-preset-react@6.23.0 babel
 
 * Create a Webpack config
 
-touch は UNIX コマンドで、指定したファイルがなければ、空の新規ファイルを作成する
+touch は UNIX コマンドで、指定したファイルがなければ、空の新規ファイルを作成する。ウェブパックのコンフィグは後で書く。
 
 ```
 $ touch webpack.config.js
@@ -68,6 +68,12 @@ app.listen(3000, function () {
 </body>
 </html>
 ```
+
+### express によるWebサーバが動くか確認
+
+`$ node server.js`
+
+ ブラウザでアクセス→ http://localhost:3000
 
 
 
