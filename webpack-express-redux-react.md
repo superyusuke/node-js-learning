@@ -173,12 +173,15 @@ store.dispatch({
 })
 ```
 
-次のコマンドと、node server.js は別のターミナルで実行する
+### webpack でsrc/app.js をコンパイルし public/bundle.js に吐き出す。public/index.html が public/bundle.js を読み込む
+
+次のコマンドと、node server.js は別のターミナルで実行する。ウェブパックの設定ファイルで指定した entry: './src/app.js' をコンパイルする。しかもウォッチで走る。public/bundle.js に吐き出される。
 
 ```
 $ webpack
 ```
-go to http://localhost:3000
+
+先程作った express によるウェブサーバーにアクセスする。次のコマンドを実行した後に http://localhost:3000 へアクセス。
 
 ```
 $ node server.js
