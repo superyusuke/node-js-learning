@@ -173,7 +173,7 @@ store.dispatch({
 })
 ```
 
-### webpack でsrc/app.js をコンパイルし public/bundle.js に吐き出す。public/index.html が public/bundle.js を読み込む
+### webpack でsrc/app.js をコンパイルし public/bundle.js に吐き出す。public/index.html が public/bundle.js を読み込む。立ち上げた express のウェブサーバーは、このpublic/index.html を リクエストに返してクライアントが受け取る。結果、Redux 周りが表示する log が開発者ツールに表示される。
 
 次のコマンドと、node server.js は別のターミナルで実行する。ウェブパックの設定ファイルで指定した entry: './src/app.js' をコンパイルする。しかもウォッチで走る。public/bundle.js に吐き出される。
 
@@ -187,8 +187,7 @@ $ webpack
 $ node server.js
 ```
 
-open chrome developer tool to observe howredux changes the application state.
-
+Chrome 等の開発者ツールで確認するとコンソールに表示があれば成功。
 
 
 
