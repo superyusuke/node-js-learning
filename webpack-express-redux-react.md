@@ -50,7 +50,8 @@ app.listen(3000, () => {
   console.log('App web-server listening onport 3000')
 })
 ```
-app.get('/',(req,res)=>{}) は、url "/" に対してクライアントが get した場合にコールバックを実行するということが記述されている。index.html を response に送って、resolve = 終了させている。
+
+app.get\('/',\(req,res\)=&gt;{}\) は、url "/" に対してクライアントが get した場合にコールバックを実行するということが記述されている。index.html を response に送って、resolve = 終了させている。
 
 ### express のサーバーで返すように指定した public/index.html を作る
 
@@ -107,29 +108,84 @@ module.exports = {
   },
 }
 ```
+
 ### entry:
+
 Webpack にどこがプリケーションのエントリーポイントか教えている
 
 ### output:
+
 Webpack にバンドルして出力する bundle.js を配置するか指定している
 
 ### watch:
-これが true の場合、Webpack に対してエントリーポイントのファイルに変更が合った場合に bundle.js を更新するように設定している。これは webpack コマンドで起動する。(そのためにグローバルにウェブパックをインストールした)
+
+これが true の場合、Webpack に対してエントリーポイントのファイルに変更が合った場合に bundle.js を更新するように設定している。これは webpack コマンドで起動する。\(そのためにグローバルにウェブパックをインストールした\)
 
 ### loaders:
+
 Webpack にどんな compiler を使うか指定
 
 ### loader:
+
 Webpack に Babel を compiler として使うように指定
 
 ### query:
+
 Webpack に Babel compiler を使って、ES6/es2015 もしくは ES6/stage-1 javascript version で書かれたソースを、ブラウザが読める JavaScript に変換するように指定している。 React は JSX もコンパイルするようにする指定。
 
 ## Redux アプリを作って、webpack でコンパイルし、アクセするする
 
-1. src という名前のフォルダを開発ディレクトリ直下に作成する
-1. app.js というファイルを src 内に作成する
-1. app.js を以下のようにする
+* src という名前のフォルダを開発ディレクトリ直下に作成する
+* app.js というファイルを src 内に作成する
+* app.js を以下のようにする
+
+```js
+'use strict'
+import { createStore } from 'redux'
+
+//STEP 3 define reducers
+const reducer = function (state = {}, action) {
+  switch (action.type) {
+    case 'POST_BOOK':
+      return state = action.payload
+      break
+    default:
+      return state
+  }
+}
+
+// STEP 1 create the store
+const store = createStore(reducer)
+store.subscribe(function () {
+  console.log('current state is: ', store.getState())
+  console.log('current price: ', store.getState().price)
+})
+
+// STEP 2 create and dispatch actions
+store.dispatch({
+  type: 'POST_BOOK',
+  payload: {
+    id: 1,
+    title: 'this is the book title',
+    description: 'this is the book',
+    price: 33.33,
+  },
+})
+```
+
+次のコマンドと、node server.js は別のターミナルで実行する
+
+```
+$ webpack
+```
+go to http://localhost:3000
+
+```
+$ node server.js
+```
+
+open chrome developer tool to observe howredux changes the application state.
+
 
 
 
