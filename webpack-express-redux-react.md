@@ -73,7 +73,63 @@ app.listen(3000, function () {
 
 `$ node server.js`
 
- ブラウザでアクセス→ http://localhost:3000
+ブラウザでアクセス→ [http://localhost:3000](http://localhost:3000)
+
+## Webpackの設定
+
+webpack.config
+```
+var path = require('path')
+const webpack = require('webpack')
+module.exports = {
+  entry: './src/app.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
+  },
+  watch: true,
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            'react', 'es2015',
+            'stage-1'],
+        },
+      },
+    ],
+  },
+}
+```
+
+
+
+entry: tells Webpack which is the entry point of theapplication  
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Helvetica; color: \#232323}  
+
+
+output: tells Webpack where to output the bundle.js file
+
+watch: when true, tells to Webpack to create a new bundle.js
+
+every time users save a change. This will work if you run the
+
+command webpack
+
+loaders: tells Webpack what compiler to use
+
+loader: tells Webpack to use Babel as compiler
+
+query: tells Webpack to use Babel compiler to transform
+
+your ES6/es2015 and ES6/stage-1 javascript version into a
+
+javascript version compatible with the browsers. React tells
+
+webpack to compile jsx into javascript
 
 
 
