@@ -78,6 +78,7 @@ app.listen(3000, function () {
 ## Webpackの設定
 
 webpack.config
+
 ```
 var path = require('path')
 const webpack = require('webpack')
@@ -104,13 +105,7 @@ module.exports = {
   },
 }
 ```
-
-
-
-entry: tells Webpack which is the entry point of theapplication  
-p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px Helvetica; color: \#232323}  
-
-
+entry: Webpack にどこがプリケーションのエントリーポイントか教えている
 output: tells Webpack where to output the bundle.js file
 
 watch: when true, tells to Webpack to create a new bundle.js
