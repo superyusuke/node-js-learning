@@ -1,12 +1,25 @@
 * install redux-logger
 
 ```
-yarn redux-logger
+$ yarn add redux-logger
 ```
 
-* import {applyMiddleware, createStore} from'redux'
-* import logger from 'redux-logger';
-* write the following code
-const middleware =applyMiddleware(logger())
-* include the middelware constant as secondargument in your createStore method as following:
-const store = createStore(reducers,middleware);
+write the following code in app.js
+
+```js
+import {applyMiddleware, createStore} from 'redux'
+import { createLogger } from 'redux-logger'
+```
+
+```js
+const middleware = applyMiddleware(logger)
+```
+
+* include the middelware constant as second argument in your createStore method as following:
+
+```js
+const store = createStore(reducers, middleware)
+```
+
+
+
