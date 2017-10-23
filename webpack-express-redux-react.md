@@ -97,34 +97,35 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: [
-            'react', 'es2015',
-            'stage-1'],
+            'react',
+            'es2015',
+            'stage-1'
+          ],
         },
       },
     ],
   },
 }
 ```
-entry: Webpack にどこがプリケーションのエントリーポイントか教えている
-output: tells Webpack where to output the bundle.js file
+### entry:
+Webpack にどこがプリケーションのエントリーポイントか教えている
 
-watch: when true, tells to Webpack to create a new bundle.js
+### output:
+Webpack にバンドルして出力する bundle.js を配置するか指定している
 
-every time users save a change. This will work if you run the
+### watch:
+これが true の場合、Webpack に対してエントリーポイントのファイルに変更が合った場合に bundle.js を更新するように設定している。これは webpack コマンドで起動する。(そのためにグローバルにウェブパックをインストールした)
 
-command webpack
+### loaders:
+Webpack にどんな compiler を使うか指定
 
-loaders: tells Webpack what compiler to use
+### loader:
+Webpack に Babel を compiler として使うように指定
 
-loader: tells Webpack to use Babel as compiler
+### query:
+Webpack に Babel compiler を使って、ES6/es2015 もしくは ES6/stage-1 javascript version で書かれたソースを、ブラウザが読める JavaScript に変換するように指定している。 React は JSX もコンパイルするようにする指定。
 
-query: tells Webpack to use Babel compiler to transform
 
-your ES6/es2015 and ES6/stage-1 javascript version into a
-
-javascript version compatible with the browsers. React tells
-
-webpack to compile jsx into javascript
 
 
 
