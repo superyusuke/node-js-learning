@@ -133,7 +133,7 @@ Webpack に Babel を compiler として使うように指定
 
 Webpack に Babel compiler を使って、ES6/es2015 もしくは ES6/stage-1 javascript version で書かれたソースを、ブラウザが読める JavaScript に変換するように指定している。 React は JSX もコンパイルするようにする指定。
 
-## Redux アプリを作って、webpack でコンパイルし、アクセするする
+## Redux アプリを作って、webpack でコンパイルし、アクセスする
 
 * src という名前のフォルダを開発ディレクトリ直下に作成する
 * app.js というファイルを src 内に作成する
