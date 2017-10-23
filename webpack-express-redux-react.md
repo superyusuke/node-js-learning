@@ -127,9 +127,9 @@ Webpack に Babel compiler を使って、ES6/es2015 もしくは ES6/stage-1 ja
 
 ## Redux アプリを作って、webpack でコンパイルし、アクセするする
 
-1. src という名前のフォルダを開発ディレクトリ直下に
-• make a file app.js inside src folder
-• copy the following code and save app.js
+1. src という名前のフォルダを開発ディレクトリ直下に作成する
+1. app.js というファイルを src 内に作成する
+1. app.js を以下のようにする
 
 
 
