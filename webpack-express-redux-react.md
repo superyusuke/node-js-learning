@@ -43,12 +43,30 @@ const path = require('path')
 // DEFINES A FOLDER FOR THE STATIC FILES
 app.use(express.static('public'))
 // DEFINES THE MAIN ENTRY POINT
+// publicディレクトリとその中のindex.htmlはこの後すぐに作る
 app.get('/', function (req, res) {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 app.listen(3000, function () {
   console.log('App web-server listening onport 3000')
 })
+```
+
+### express のサーバーで返すように指定した public/index.html を作る
+
+```HTML
+<!DOCTYPE>
+<html>
+<head>
+  <title>Hello redux</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0 maximum-scale=1.0"/>
+</head>
+<body>
+<div id="app"></div>
+<script src="bundle.js"></script>
+<h1>Hello first Redux App</h1>
+</body>
+</html>
 ```
 
 
