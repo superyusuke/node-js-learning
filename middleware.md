@@ -10,8 +10,3 @@ yarn redux-logger
 const middleware =applyMiddleware(logger())
 * include the middelware constant as secondargument in your createStore method as following:
 const store = createStore(reducers,middleware);
-
-```
-
-```
-
