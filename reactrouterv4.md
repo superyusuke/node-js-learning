@@ -144,8 +144,31 @@ the only part that React Router attempts to match is /my-projects/one.
 
 route のマッチという観点では、React Router は location の pathname しか考慮に入れません。ですので、http://www.example.com/my-projects/one?extra=false といった URL の場合、React Router は、/my-projects/one に対してマッチするかどうかを判定します。
 
+### Matching paths
+The path-to-regexp package is used to determine if a route element’s path prop matches the current location. It compiles the path string into a regular expression, which will be matched against the location’s pathname. Path strings have more advanced formatting options than will be covered here. You can read about them in the path-to-regexp documentation.
 
+route エレメントの path プロップのマッチ判定には、path-to-regexp パッケージが使用されています。そのパッケージが path プロップに与えられた文字列を正規表現に変換して、その変換されたものと location の pathname が一致しているかを判定します。path に与える文字列には多くの option がありますが、このコースで扱う範囲を超えています。興味がある場合は、[path-to-regexp のドキュメント](https://github.com/pillarjs/path-to-regexp)を参照してください。
 
+When the route’s path matches, a match object with the following properties will be created:
+
+route path がマッチした場合、match オブジェクトが生成されます。このオブジェクトは、以下のプロパティを持ちます。
+
+* url — the matched part of the current location’s pathname
+* 現在の location pathname の一致した箇所
+* path — the route’s path
+* route の path
+* isExact — path === pathname
+* path===pathname (訳注:一致していればtrueが返される)
+* params — an object containing values from the pathname that were captured by path-to-regexp
+* path-to-regexp で capture した pathname から得られた値を持つ、オブジェクト
+
+You can use [this route tester](https://pshrmn.github.io/route-tester/#/) to play around with matching routes to URLs.
+
+このサイトで URL と route のマッチングについて試してみることができます。
+
+Note: Currently, a route’s path must be absolute[4].
+
+今のところ、route に与えられる path は絶対表記 = absolute でないといけません。 
 
 
 
