@@ -1,23 +1,31 @@
-## The `<App>`
+## Routes
+The `<Route>` component is the main building block of React Router. Anywhere that you want to only render something if it matches the location’s pathname, you should create a `<Route>` element.
 
-Our application is defined within the`<App>` component. To simplify things, we will split our application into two parts. The `<Header>` component will contain links to navigate throughout the website. The `<Main>` component is where the rest of the content will be rendered.
+`<Route>`コンポーネントは、React Router の中心的な役割を担うブロックです。location の pathname に一致した際に、何かをレンダーしたい場所に対して、`<Route>` 要素を配置します。
 
-私達のアプリケーションは、`<App>`コンポーネントの中で定義される必要があります。さて、私達のアプリケーシションを整理するために、２つのパートに分けることにしましょう。The `<Header>` コンポーネントはサイト内を移動するためのリンクを持つ予定でうす。`<Main>` コンポーネントはそれ以外の残りの要素がレンダリングされます。
+### Path
+A `<Route>` expects a path prop string that describes the type of pathname that the route matches — for example, `<Route path='/roster'/>` should match a pathname that begins with /roster[2]. When the current location’s pathname is matched by the path, the route will render a React element. When the path does not match, the route will not render anything [3].
+
+`<Route>`は
 
 ```
-// this component will be rendered by our <___Router>
-const App = () => (
-  <div>
-    <Header />
-    <Main />
-  </div>
-)
+<Route path='/roster'/>
+// when the pathname is '/', the path does not match
+// when the pathname is '/roster' or '/roster/2', the path matches
+
+// If you only want to match '/roster', then you need to use
+// the "exact" prop. The following will match '/roster', but not
+// '/roster/2'.
+<Route exact path='/roster'/>
+
+// You might find yourself adding the exact prop to most routes.
+// In the future (i.e. v5), the exact prop will likely be true by
+// default. For more information on that, you can check out this 
+// GitHub issue:
+// https://github.com/ReactTraining/react-router/issues/4958
+
 ```
 
-Note: You can layout your application any way that you would like, but separating routes and navigation makes it easier to show how React Router works for this tutorial.
-
-どんなふうにでもアプリケーションを構造化することができますが、React Router がどのように機能するかを理解するという意味では、route と他のナビゲーションを分けたほうが、よりわかりやすくなると思いますのでそうしました。
-
-We will start in the `<Main>` component, where we will render our routes.
-
-では route を内部でレンダーする `<Main>` コンポーネントに次に取り掛かりましょう。
+Note: When it comes to matching routes, React Router only cares about the pathname of a location. That means that given the URL:
+http://www.example.com/my-projects/one?extra=false
+the only part that React Router attempts to match is /my-projects/one.
