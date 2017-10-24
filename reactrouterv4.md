@@ -170,8 +170,42 @@ Note: Currently, a route’s path must be absolute[4].
 
 今のところ、route に与えられる path は絶対表記 = absolute でないといけません。 
 
+### Creating our routes
+`<Route>`s can be created anywhere inside of the router, but often it makes sense to render them in the same place. You can use the`<Switch>` component to group `<Route>`s. The `<Switch>` will iterate over its children elements (the routes) and only render the first one that matches the current pathname.
+
+`<Route>`は router の内部であればどこでも作成することができますが、全てをある良い箇所に固めて配置したほうが、把握するのが楽になると思います。`<Switch>`コンポーネントを用いて`<Route>`をグループ化しましょう。`<Switch>`は、自分の子要素として存在する route を捜索し、現在の pathname と一致した最初の route をレンダリングします。
+
+For this website, the paths that we want to match are:
+
+今回作成するウェブサイトの場合は、マッチさせたい path は以下のようになります
+
+* / — the homepage
+* / — トップページ
+
+* /roster — the team’s roster
+* /roster — 登録選手名簿
+
+* /roster/:number — a profile for a player, using the player’s number
+* /roster/:number — プレイヤーのプロフィールページ, プレイヤーの number を使用する
+
+* /schedule — the team’s schedule of games
+* /schedule — 試合の予定表
 
 
+In order to match a path in our application, all that we have to do is create a <Route> element with the path prop we want to match.
+
+私達の作るアプリケーションの route エレメントへの path は以下のようになります。
+
+```
+<Switch>
+  <Route exact path='/' component={Home}/>
+  {/* both /roster and /roster/:number begin with /roster */}
+  <Route path='/roster' component={Roster}/>
+  <Route path='/schedule' component={Schedule}/>
+</Switch>
+```
+// /roster でも /roster/:number でもマッチします。
+// /roster で始まる場合に一致するからです
 
 
 
