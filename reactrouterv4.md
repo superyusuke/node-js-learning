@@ -207,8 +207,48 @@ In order to match a path in our application, all that we have to do is create a 
 // /roster でも /roster/:number でもマッチします。
 // /roster で始まる場合に一致するからです
 
+### What does the `<Route>` render?
+`<Route>`が何をレンダリングするか
 
+Routes have three props that can be used to define what should be rendered when the route’s path matches. Only one should be provided to a `<Route>` element.
 
+Route の path がマッチした際に何をレンダリングするのか、それを定義するための prop には 3種類あります。どれか一つを`<Route>`に与える必要があります。
+
+component — A React component. When a route with a component prop matches, the route will return a new element whose type is the provided React component (created using React.createElement).
+
+component - React component を与えます。component が prop に与えられている場合にマッチすると、route は 指定された React component を新規要素として返します。 
+
+render — A function that returns a React element [5]. It will be called when the path matches. This is similar to component, but is useful for inline rendering and passing extra props to the element.
+
+render - React element を返す関数を指定します。これは component を prop に渡す場合と似ていますが、しかしインラインでレンダリングしたい場合、また追加の prop を要素に与えたい場合には便利です。
+
+children — A function that returns a React element. Unlike the prior two props, this will always be rendered, regardless of whether the route’s path matches the current location.
+
+children - React element を返す関数を指定します。既にあげた２つの prop 床となり、これはマッチしていないときでも常にレンダリングされます。
+
+```jsx
+<Route path='/page' component={Page} />
+
+const extraProps = { color: 'red' }
+
+<Route path='/page' render={(props) => (
+  <Page {...props} data={extraProps}/>
+)}/>
+
+<Route path='/page' children={(props) => (
+  props.match
+    ? <Page {...props}/>
+    : <EmptyPage {...props}/>
+)}/>
+```
+
+Typically, either the component or render prop should be used. The children prop can be useful occasionally, but typically it is preferable to render nothing when the path does not match. We do not have any extra props to pass to the components, so each of our `<Route>`s will use the component prop.
+
+一般的には、component か render プロップを用いるべきです。children プロップは時には便利ですが、通常はマッチしていないときには何もレンダリングしないほうがいいでしょう。今回は特に追加で渡したい prop がないので component を prop として採用することにします。
+
+The element rendered by the `<Route>` will be passed a number of props. These will be the match object, the current location object [6], and the history object (the one created by our router) [7].
+
+`<Route>`によってレンダリングされた要素には、prop の number が渡されます。その number は、match オブジェクトと、current location オブジェクトと、history オブジェクトです。(訳注:よくわからない)
 
 
 
