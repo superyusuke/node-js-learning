@@ -47,6 +47,36 @@ For our project, we will assume that the website will be backed by a dynamic ser
 
 一般的に`<BrowserRouter>`を選んだほうがいいと思いますが、スタティックファイルにだけしか対応していないサーバーの場合は、`<HashRouter>`を使うことで対応することができます。私達地元チーム向けウェブサイトのプロジェクトでは、ダイナミック・サーバーの上で動いているとして、`<BrowserRouter>`をルーター用コンポーネントに選択することにしましょう。
 
+## History
+
+Each router creates a history object, which it uses to keep track of the current location[1] and re-render the website whenever that changes. The other components provided by React Router rely on having that history object available through the context, so they must be rendered inside of the router. A React Router component that does not have a router as one of its ancestors will fail to work. If you are interested in learning more about the history object (I think that this is important), you can check out my article A Little Bit of History.
+
+それぞれの router は history object を生成します。これは現在の location を記録するために使用され、また location が変更された場合には、ウェブサイトを再レンダリングします。(訳注:正確に意味がわからない)React Router が提供するその他のコンポーネントは、context を通じて history object を使用可能である必要があるため、React Router が提供するその他のコンポーネントは router の内側で render される必要があります。つまり、React Router コンポーネントのうち、親要素に router もたないものは機能しません。history obeject に関するより深い理解を得たい場合には(個人的には非常に重要だと思います)[私が書いたこの記事を参照してください。](https://medium.com/@pshrmn/a-little-bit-of-history-f245306f48dd)
+
+## Rendering a `<Router>`
+
+Router components only expect to receive a single child element. To work within this limitation, it is useful to create an `<App>` component that renders the rest of your application (separating your application from the router is also important for server rendering because you can re-use the `<App>` on the server while switching to a `<MemoryRouter>`).
+
+Router は、一つの子要素だけ受け取ることができます。そのため、`<App>`コンポーネントを作って、残りのアプリケーション用のコンポーネントはその下でレンダリングささせましょう。(訳注: `<App>`の中でさらにコンポーネントを呼び出す、という一般的な React におけるツリー化)
+
+(router と `<App>` を分けるのは、サーバーレンダリングする際にも重要になってきます。何故なら、そうしておけば`<App>` をサーバーサイドにおいた場合には、(訳注:恐らく`<BrowserRouter>`を)`<MemoryRouter>`に切り替えるだけでいいからです。)
+
+
+```
+import { BrowserRouter } from 'react-router-dom'
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'))
+
+```
+
+Now that we have chosen our router, we can start to render our actual application.
+
+さて、router の選択については終わりましたので、次は実際のアプリケーションを render させていきましょう。
+
+
 
 
 
