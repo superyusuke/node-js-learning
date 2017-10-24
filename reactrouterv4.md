@@ -273,4 +273,48 @@ Note: The route for the homepage includes an exact prop. This is used to state t
 
 homepage 用の route には exact prop を指定しています。これは、この route が '/' だけにマッチするように指定するためです。(訳注:exact がなければ、'/bah/bah' 等全てにマッチしてしまうから。通常トップページ用には exact を用いることになる。)
 
+### Nested Routes
+入れ子状になった　route について
+
+The player profile route /roster/:number is not included in the above `<Switch>`. Instead, it will be rendered by the `<Roster>` component, which is rendered whenever the pathname begins with /roster.
+
+プレイヤーのプロフィール用の route である /roster/:number は`<Switch>`の中にはありません。これは、`<Roster>`コンポーネントの中でレンダリングさせることにしました。`<Roster>`は /roster で始まる pathname の場合にレンダリングされるコンポーネントでした。
+
+Within the `<Roster>` component we will render routes for two paths:
+
+`<Roster>`コンポーネントの中で、2種類の path をもった route をレンダーさせます。
+
+* /roster — This should only be matched when the pathname is exactly /roster, so we should also give that route element the exact prop.
+* /roster - この route は、pathname が完全に /roster の場合のみレンダーさせたいので、exact prop を与えます。
+
+* /roster/:number — This route uses a path param to capture the part of the pathname that comes after /roster.
+* /roster/:number - この route は path param を用いて、pathname の一部、つまり /roster の後に来る部分を、特定し、使用します。
+
+
+```jsx
+const Roster = () => (
+  <Switch>
+    <Route exact path='/roster' component={FullRoster}/>
+    <Route path='/roster/:number' component={Player}/>
+  </Switch>
+)
+
+```
+
+It can be useful to group routes that share a common prefix in the same component. This allows for simpler parent routes and gives us a place to render content that is common across all routes with the same prefix.
+As an example, `<Roster>` could render a title that would be displayed for all routes whose path begins with /roster.
+
+```jsx
+const Roster = () => (
+  <div>
+    <h2>This is a roster page!</h2>
+    <Switch>
+      <Route exact path='/roster' component={FullRoster}/>
+      <Route path='/roster/:number' component={Player}/>
+    </Switch>
+  </div>
+)
+```
+
+
 
