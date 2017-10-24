@@ -1,6 +1,6 @@
 # 環境作成
 
-## SET-UP DEPENDENCIES AND WEBPACK
+## Webpack と npm dependency のインストール
 
 * Open terminal and run the following commands:
 
@@ -55,7 +55,7 @@ app.get\('/',\(req,res\)=&gt;{}\) は、url "/" に対してクライアント�
 
 ### express のサーバーで返すように指定した public/index.html を作る
 
-```
+```html
 <!DOCTYPE>
 <html>
 <head>
