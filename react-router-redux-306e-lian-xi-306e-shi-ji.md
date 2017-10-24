@@ -1,3 +1,5 @@
+# react-router と redux の連携の実際
+
 BrowserRouter as Router にしておいて、`<Router/>`で囲むのもよくあるパターン。読み込むものが native 用でもなんでも行けるので。
 
 ```jsx
