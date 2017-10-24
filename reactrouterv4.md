@@ -14,8 +14,8 @@ In this tutorial, we will be building a website for a local sports team. We will
 
 ## The Code
 
-_Just want to see the website in action? Here it is. No fancy styling, just a simple, functional website. The demo code is also available on CodePen if you want to play around with it there.
-_
+Just want to see the website in action? Here it is. No fancy styling, just a simple, functional website. The demo code is also available on CodePen if you want to play around with it there.
+
 どのように機能するのか実際のウェブサイトでご覧になりたいことでしょう。次のデモは、綺麗なスタイリングはされていませんが、シンプルな機能だけしかないサイトです。
 
 [CodeSandBox](https://codesandbox.io/s/vVoQVk78?from-embed)
