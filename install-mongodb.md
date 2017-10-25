@@ -14,7 +14,7 @@ $ brew install mongodb
 $ mkdir -p /data/db
 ```
 
-
+データベースを実行
 
 ```
 $ mongod
