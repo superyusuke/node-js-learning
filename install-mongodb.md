@@ -13,12 +13,20 @@ $ brew install mongodb
 ```
 $ mkdir -p /data/db
 ```
+ができる
+/data/db
+
+```
+$ which mongod
+```
 
 データベースを実行
 
 ```
 $ mongod
 ```
+
+
 
 
 
