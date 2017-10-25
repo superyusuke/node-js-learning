@@ -2,10 +2,26 @@
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 
-homebrew でインストールするバージョンを選択
+homebrew でインストールするバージョン
 
 ```
 $ brew update
 $ brew install mongodb
 ```
+データベース用のフォルダを作る
+
+```
+$ mkdir -p /data/db
+```
+
+
+
+```
+$ mongod
+```
+
+
+
+
+
 
