@@ -2,25 +2,27 @@
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 
-homebrew でインストールするバージョン
+幾つかのインストール方法があるが、今回は homebrew でmongoDB Comunity server をインストールする。
+
+以下、ルートディレクトリにて実行。
 
 ```
 $ brew update
 $ brew install mongodb
 ```
-データベース用のフォルダを作る
-
-```
-$ mkdir -p /data/db
-```
-ができる
-/data/db
+どの bin が実行されているのか確認したい場合以下のコマンド
 
 ```
 $ which mongod
 ```
 
-データベースを実行
+データベース用のフォルダを作る。ルートディレクトリ以下に /data/db ができる。標準で MongoDB はここをデータベースのデータを配置するディレクトリとして使用する。
+
+```
+$ mkdir -p /data/db
+```
+
+データベースを動かす
 
 ```
 $ mongod
