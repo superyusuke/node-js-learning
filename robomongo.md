@@ -22,7 +22,7 @@ myDBs→create database→任意の名前でDBを作成する。ここではtest
 
 testDB→open shell でクエリを実行できる場所を表示する
 
-
+次のコマンドを実行。myDBs という db に対して、books というコレクションを作成し、そこに データをインサートする。booksというコレクションがなければ、自動的にこのコマンドによって生成される。
 
 ```json
 db.books.insert([  
