@@ -17,3 +17,25 @@ name を任意のものに変える MyDBs とか
 Address は mongod を実行した際に表示される port とあっていれば、そのままで OK
 
 作ったら、connect (その前にMongoDB を動かすために、`$ mongod` しておくこと)
+
+myDBs→create database→任意の名前でDBを作成する。ここではtestDBとする。
+
+testDB→open shell でクエリを実行できる場所を表示する
+
+
+
+```json
+db.books.insert([  
+   {  
+      "title":"second book title",
+      "description":"second book description",
+      "price":22
+   },
+   {  
+      "title":"second book title",
+      "description":"second book description",
+      "price":33
+   }
+])
+```
+
