@@ -75,6 +75,18 @@ db.books.update({
 
 ```
 
+### 対象がない場合だけ、新規ドキュメントを作成する
+
+{upsert: true} というオプションを追加することで、filter query (ここでは`{"_id" : ObjectId("59f143a477342cfbea9a9c10")}`という部分。検索対象。)が「ない場合」のみ、新しいドキュメントを作成する。
+
+```json
+db.books.update(
+    {"_id" : ObjectId("59f143a477342cfbea9a9c10")},
+    {$set: {"title": "this book didn't exist"}},
+    {upsert: true}
+)
+
+```
 
 
 
