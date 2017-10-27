@@ -98,4 +98,10 @@ db.books.update(
 )
 ```
 
-### 
+### 削除
+
+```
+db.books.remove(
+   {"_id" : ObjectId("<HERE AN ID FROM YOUR DB>")}
+)
+```
