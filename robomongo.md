@@ -88,5 +88,14 @@ db.books.update(
 
 ```
 
+### より大きい $gt: と 複数対象 {multi: true}
 
+```json
+db.books.update(
+   {"price" : {$gt:20}},
+   {$set: {"discount": 55}},
+   {multi: true}
+)
+```
 
+### 
