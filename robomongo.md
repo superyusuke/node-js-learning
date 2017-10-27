@@ -39,3 +39,42 @@ db.books.insert([
 ])
 ```
 
+## 入力したデータを見る
+
+testDB→collection→books まで降りていき、books をエンターすると、開く。
+右側のテキストマークをクリックすると、json形式そのもので中身が見える。
+
+## update
+
+対象のフィールドがあれば、ここでは title、value が更新される。
+
+
+```json
+db.books.update({  
+   "_id":ObjectId("<<ダブルクオートの中に対象のidを入れる>>")
+},
+{  
+   $set:{  
+      "title":"title was updated"
+   }
+})
+
+```
+
+対象のフィールドがない場合、ここでは discount、新たにフィールドが作成された上で追加される。
+
+```json
+db.books.update({  
+   "_id":ObjectId("<<ダブルクオートの中に対象のidを入れる>>")
+},
+{  
+   $set:{
+      "discount": 20}
+   }
+})
+
+```
+
+
+
+
