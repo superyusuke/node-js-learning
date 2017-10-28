@@ -4,8 +4,6 @@
 
 Edit books.js as below.  
 
-
-
 ```js
 'use strict'
 var mongoose = require('mongoose')
@@ -21,11 +19,11 @@ module.exports = Books
 ```
 
 
-## app.js で mongoose 読み込み、Scheme用ファイルの読み込み、apiを書く
+## app.js で mongoose 読み込み、Scheme用ファイルの読み込み、MongoDB を叩く API を書く
 
 7. Edit app.js adding the code below
 
-```
+```js
 app.use(express.static(path.join(__dirname, 'public')))
 
 //<<<ここに追加>>>
@@ -58,7 +56,7 @@ app.post('/books', function (req, res) {
 // END APIs
 ```
 
-## クライアントから localhost:3000 に post する。
+## クライアントから localhost:3000 に post する
 
 Chrome extension から以下のものインストール
 Restlet Client - REST API Testing
