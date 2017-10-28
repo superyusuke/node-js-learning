@@ -10,6 +10,21 @@ models
 
 ## app.js で mongoose 読み込み、Scheme用ファイルの読み込み、apiを書く
 
+
+
+```
+app.use(express.static(path.join(__dirname, 'public')))
+
+//<<<ここに追加>>>
+
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname,
+    'public', 'index.html'))
+})
+
+```
+
+
 ## クライアントから localhost:3000 に post する。
 
 Restlet Client - REST API Testing
