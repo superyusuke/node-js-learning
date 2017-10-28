@@ -54,7 +54,7 @@ app.post('/books', function (req, res) {
   })
 })
 // END APIs
----
+```
 
 ## クライアントから localhost:3000 に post する。
 
