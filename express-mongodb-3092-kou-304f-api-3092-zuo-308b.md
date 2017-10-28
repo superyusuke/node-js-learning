@@ -37,6 +37,8 @@ app.get('*', function (req, res) {
 
 ```
 
+追加するもの
+
 ```js
 // APIs
 var mongoose = require('mongoose')
@@ -58,10 +60,10 @@ app.post('/books', function (req, res) {
 
 ## クライアントから localhost:3000 に post する。
 
+Chrome extension から以下のものインストール
 Restlet Client - REST API Testing
 
 
-
-ブラウザからlocalhost3000にpost  
+クライアントから localhost3000/books に post   
 nodeが受け取って、mongoを叩くようにする。
 
