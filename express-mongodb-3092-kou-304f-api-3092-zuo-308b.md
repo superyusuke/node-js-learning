@@ -64,6 +64,31 @@ Chrome extension から以下のものインストール
 Restlet Client - REST API Testing
 
 
-クライアントから localhost3000/books に post   
-nodeが受け取って、mongoを叩くようにする。
+1. クライアントから localhost3000/books に Json を post   
+1. express サーバーが受け取って、MongoDBを叩く
+1. MongoDB に記録される
 
+
+### Http Request をする
+json を送る
+![](/assets/req.png)
+
+```json
+[
+   {
+      "title":"test title 1",
+      "description":"test description 1",
+      "image":"",
+      "price":11
+   },
+   {
+      "title":"test title 2",
+      "description":"test description 2",
+      "image":"",
+      "price":22
+   }
+]
+```
+
+### Response を受け取る
+![](/assets/res.png)
