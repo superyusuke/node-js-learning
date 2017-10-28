@@ -70,8 +70,9 @@ Restlet Client - REST API Testing
 
 
 ### Http Request をする
-json を送る
+post メソッドで json を送る。body に以下を貼り付ける。
 ![](/assets/req.png)
+
 
 ```json
 [
@@ -91,4 +92,5 @@ json を送る
 ```
 
 ### Response を受け取る
+ここでは JSON を返すようにしたので、成功すると返ってくる。
 ![](/assets/res.png)
