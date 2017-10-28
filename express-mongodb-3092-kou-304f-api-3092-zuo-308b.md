@@ -1,16 +1,29 @@
 # Express から MongoDB に記録する
 
-##/modelを作って、そこにbooks.js という mongoDB のScheme用のファイルを作る。
+##/modelsを作って、そこにbooks.js という mongoDB のScheme用のファイルを作る。
 
-In the main app directory create a folder called:  
-models  
-5. Inside models, create a file file: books.js  
-6. Edit books.js as below.  
-7. Edit app.js adding the code below
+Edit books.js as below.  
+
+
+
+```js
+'use strict'
+var mongoose = require('mongoose')
+var bookSchema = mongoose.Schema({
+  title: String,
+  description: String,
+  image: String,
+  price: Number
+})
+
+var Books = mongoose.model('Books', bookSchema)
+module.exports = Books
+```
+
 
 ## app.js で mongoose 読み込み、Scheme用ファイルの読み込み、apiを書く
 
-
+7. Edit app.js adding the code below
 
 ```
 app.use(express.static(path.join(__dirname, 'public')))
