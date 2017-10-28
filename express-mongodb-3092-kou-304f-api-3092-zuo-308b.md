@@ -37,6 +37,24 @@ app.get('*', function (req, res) {
 
 ```
 
+```js
+// APIs
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/bookshop')
+Books = require('./models/books.js')
+
+//-----POST BOOKS----------
+app.post('/books', function (req, res) {
+  var book = req.body
+  Books.create(book, function (err, books) {
+    if (err) {
+      throw err
+    }
+    res.json(books)
+  })
+})
+// END APIs
+---
 
 ## クライアントから localhost:3000 に post する。
 
