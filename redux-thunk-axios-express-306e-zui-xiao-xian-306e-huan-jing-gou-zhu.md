@@ -87,9 +87,14 @@ res.sendFile(path.resolve(__dirname,
 })
 ```
 
+### /public/index.js を作成して読み込ませる
 app.get で読み込むファイル /public/index.js を作成する
 
-yarn start を再起動して、localhost:3000 にアクセスして、先程作った  index.html が表示されれば OK
+### 動いているか確認
+```
+$ nodemon
+```
+ localhost:3000 にアクセスして、先程作った  index.html が表示されれば OK
 
 
 
