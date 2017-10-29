@@ -18,6 +18,7 @@
 1. yarn でインストール。
 1. クライアントが Express サーバーにアクセスした場合に、index.html を返すように /app.js を修正。(同時に必要のない ejs 等の view を削除する)
 1. Webpack で /src/app.js → /public/bundle.js に出力するよう設定 
+1. /src/app 周りに React-Redux アプリケーションを構築
 
 ### 1. Express App の作成
 
@@ -160,6 +161,4 @@ $ webpack
 
 localhost:3000 にアクセスして、console に表示されれば OK
 
-## src 以下の React-Redux アプリケーションの作成
-
-## Express アプリケーションの変更
+## 6. /src/app 周りに React-Redux アプリケーションを構築
