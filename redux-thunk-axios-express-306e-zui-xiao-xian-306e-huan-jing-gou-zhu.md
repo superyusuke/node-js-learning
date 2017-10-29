@@ -1,4 +1,4 @@
-# Redux-thunk axios express の最小限の環境構築
+# Redux-thunk axios Express MongoDB の最小限の環境構築
 
 ## 環境の全体像
 * フロントは React Redux Webpack
