@@ -17,7 +17,7 @@
 1. フロントエンドに必要な package を yarn add で追加する。
 1. yarn でインストール。
 1. クライアントが Express サーバーにアクセスした場合に、index.html を返すように /app.js を修正。(同時に必要のない ejs 等の view を削除する)
-1. React-redux 
+1. Webpack で /src/app.js → /public/bundle.js に出力するよう設定 
 
 ### 1. Express App の作成
 
@@ -97,8 +97,68 @@ $ nodemon
  localhost:3000 にアクセスして、先程作った  index.html が表示されれば OK
 
 
+## 6.Webpack で /src/app.js → /public/bundle.js に出力するよう設定 
+
+### webpack.config.js を作成する
+
+```
+$ touch webpack.config.js
+```
+
+webpack.config.js を設定
+
+```js
+var path = require('path')
+const webpack = require('webpack')
+module.exports = {
+  entry: './src/client.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
+  },
+  watch: true,
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            'react',
+            'es2015',
+            'stage-1'
+          ],
+        },
+      },
+    ],
+  },
+}
+```
+
+### webpack の entrypoint である src/client.js を作成する
+/src/client.js を作って適当に js を適当に書く。 
+
+```js
+const doLog = (text) => {
+  console.log(text)
+}
+
+doLog('Welcome Webpack')
+```
+
+### /public/index.html で bundle.js を </body> 直前で読み込む
+
+<script src="bundle.js"></script>
 
 
+### webpack で実行する
+
+```
+$ webpack
+```
+
+localhost:3000 にアクセスして、console に表示されれば OK
 
 ## src 以下の React-Redux アプリケーションの作成
 
