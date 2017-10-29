@@ -19,10 +19,47 @@
 1. クライアントが Express サーバーにアクセスした場合に、index.html を返すように /app.js を修正。(同時に必要のない ejs 等の view を削除する)
 1. React-redux 
 
+### 1. Express App の作成
 
-Webstorm の場合、create new project → Express App で作成する。
+一度もしたことがなければ
 
-## Webpack の設定
+```
+$ yarn global add express-generator nodemon
+```
+
+次に、対象のディレクトリ内で
+
+```
+$ express
+```
+
+Webstorm の場合、create new project → Express App で作成可能。
+
+### 2. フロントエンドに必要なパッケージを yarn add する
+
+#### Global に必要なもの
+一度も入れたことがなければ
+
+```
+$ yarn global add webpack
+```
+
+以下は、全プロジェクトで実行
+
+```
+$ yarn add webpack babel-core babel-loader babel-preset-react babel-preset-es2015 babel-preset-stage-1 redux react-redux redux-thunk axios redux-logger mongoose 
+```
+
+### 3. yarn で package.json に書かれたものをすべてインストールする
+
+```
+$ yarn
+```
+
+## 4.Express サーバーが /public/index.html を返すように /app.js を修正
+
+
+
 
 ## src 以下の React-Redux アプリケーションの作成
 
