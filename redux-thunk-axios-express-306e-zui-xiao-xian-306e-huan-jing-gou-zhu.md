@@ -3,7 +3,7 @@
 ## 環境の全体像
 * フロントは React Redux Webpack
 * サーバーサイドは Express MongoDB
-* Express のウェブサーバーにクライアントがアクセスすると、React アプリケーションが動いている index.html を返す
+* (Express のウェブサーバーにクライアントがアクセスすると、React アプリケーションが動いている index.html を返す)
 * 両者は axios redux-thunk を使って通信する
 
 ### ディレクトリ構造
@@ -57,6 +57,40 @@ $ yarn
 ```
 
 ## 4.Express サーバーが /public/index.html を返すように /app.js を修正
+
+
+### /app.js の修正
+
+jadeを使わないので其の部分を削除して、かわりにget\(\)で読み込ませるものを与える。
+
+/app.js の view に jade を使うことを指定している以下の箇所を、削除。
+
+```js
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+```
+
+25行目あたりにある以下を削除して、
+
+```js
+app.use('/', index);
+app.use('/users', users);
+```
+
+同じ位置に次のものを配置する
+
+```js
+app.get('*', function(req, res){
+res.sendFile(path.resolve(__dirname,
+'public', 'index.html'))
+})
+```
+
+app.get で読み込むファイル /public/index.js を作成する
+
+yarn start を再起動して、localhost:3000 にアクセスして、先程作った  index.html が表示されれば OK
+
 
 
 
