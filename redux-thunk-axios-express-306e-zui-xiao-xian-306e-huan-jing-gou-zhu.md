@@ -162,3 +162,5 @@ $ webpack
 localhost:3000 にアクセスして、console に表示されれば OK
 
 ## 6. /src/app 周りに React-Redux アプリケーションを構築
+
+
