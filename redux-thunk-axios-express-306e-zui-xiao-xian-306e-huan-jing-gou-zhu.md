@@ -89,7 +89,7 @@ res.sendFile(path.resolve(__dirname,
 ```
 
 ### /public/index.js を作成して読み込ませる
-app.get で読み込むファイル /public/index.js を作成する
+app.get で読み込むファイル /public/index.html を作成する
 
 ### 動いているか確認
 ```
