@@ -5,7 +5,7 @@ Robomongo は MongoDB を GUI で操作するためのツール。これを使�
 Robo 3T をダウンロードしてインストール。
 https://robomongo.org/download
 
-解答→appにドラッグ・アンド・ドロップでインストール
+→appにドラッグ・アンド・ドロップでインストール
 
 起動
 

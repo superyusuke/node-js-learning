@@ -18,7 +18,6 @@ var Books = mongoose.model('Books', bookSchema)
 module.exports = Books
 ```
 
-
 ## app.js で mongoose 読み込み、Scheme用ファイルの読み込み、MongoDB を叩く API を書く
 
 7. Edit app.js adding the code below

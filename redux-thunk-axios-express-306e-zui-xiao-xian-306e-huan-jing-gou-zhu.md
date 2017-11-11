@@ -171,7 +171,17 @@ localhost:3000 にアクセスして、console に表示されれば OK
 yarn add react react-dom react-router-dom
 ```
 
+## 7. mongoDB周り
 
+```
+yarn add mongoose
+```
+
+# 8. Redux-thunk axios
+
+```
+yarn add axios redux-thunk
+```
 
 
 
