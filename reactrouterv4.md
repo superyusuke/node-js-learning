@@ -1,4 +1,4 @@
-#A Simple React Router v4 Tutorial
+..............................................................#A Simple React Router v4 Tutorial
 
 React Router v4 is a pure React rewrite of the popular React package. Previous versions of React Router used configuration disguised as pseudo-components and would be difficult to understand. Now with v4, everything is now “just components”.
 
