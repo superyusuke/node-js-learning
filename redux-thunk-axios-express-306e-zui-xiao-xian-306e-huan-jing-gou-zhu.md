@@ -148,9 +148,9 @@ const doLog = (text) => {
 doLog('Welcome Webpack')
 ```
 
-### /public/index.html で bundle.js を </body> 直前で読み込む
+### /public/index.html で bundle.js を `</body>` 直前で読み込む
 
-<script src="bundle.js"></script>
+`<script src="bundle.js"></script>`
 
 
 ### webpack で実行する
